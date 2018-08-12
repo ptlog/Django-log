@@ -1,0 +1,38 @@
+*** Starting uWSGI 2.0.17.1 (64bit) on [Sun Aug 12 10:08:18 2018] ***
+compiled with version: 5.4.0 20160609 on 10 August 2018 11:45:07
+os: Linux-4.15.0-24-generic #26~16.04.1-Ubuntu SMP Fri Jun 15 14:35:08 UTC 2018
+nodename: ubuntu
+machine: x86_64
+clock source: unix
+pcre jit disabled
+detected number of CPU cores: 4
+current working directory: /home/python/myblog/Plog
+writing pidfile to uwsgi1.pid
+detected binary path: /home/python/.virtualenvs/myblog/bin/uwsgi
+chdir() to /home/python/myblog/Plog
+your processes number limit is 11685
+your memory page size is 4096 bytes
+detected max file descriptor number: 1048576
+lock engine: pthread robust mutexes
+thunder lock: disabled (you can enable it with --thunder-lock)
+uwsgi socket 0 bound to TCP address 127.0.0.1:8081 fd 3
+Python version: 3.5.2 (default, Nov 23 2017, 16:37:01)  [GCC 5.4.0 20160609]
+Set PythonHome to /home/python/.virtualenvs/myblog
+Python main interpreter initialized at 0x17a2020
+python threads support enabled
+your server socket listen backlog is limited to 100 connections
+your mercy for graceful operations on workers is 60 seconds
+mapped 416720 bytes (406 KB) for 8 cores
+*** Operational MODE: preforking+threaded ***
+WSGI app 0 (mountpoint='') ready in 0 seconds on interpreter 0x17a2020 pid: 6692 (default app)
+*** uWSGI is running in multiple interpreter mode ***
+spawned uWSGI master process (pid: 6692)
+spawned uWSGI worker 1 (pid: 6694, cores: 2)
+spawned uWSGI worker 2 (pid: 6695, cores: 2)
+spawned uWSGI worker 3 (pid: 6697, cores: 2)
+spawned uWSGI worker 4 (pid: 6698, cores: 2)
+[pid: 6698|app: 0|req: 1/1] 127.0.0.1 () {44 vars in 803 bytes} [Sun Aug 12 10:14:03 2018] GET /profile => generated 8853 bytes in 818 msecs (HTTP/1.1 200) 4 headers in 124 bytes (1 switches on core 0)
+[pid: 6697|app: 0|req: 1/2] 127.0.0.1 () {44 vars in 855 bytes} [Sun Aug 12 10:14:15 2018] GET /user/login?next=/user/user_center => generated 1878 bytes in 631 msecs (HTTP/1.1 200) 5 headers in 278 bytes (1 switches on core 0)
+[pid: 6695|app: 0|req: 1/3] 127.0.0.1 () {44 vars in 804 bytes} [Sun Aug 12 10:19:54 2018] GET /profile => generated 8853 bytes in 614 msecs (HTTP/1.1 200) 4 headers in 124 bytes (1 switches on core 0)
+[pid: 6694|app: 0|req: 1/4] 127.0.0.1 () {44 vars in 804 bytes} [Sun Aug 12 10:20:01 2018] GET /profile => generated 8853 bytes in 640 msecs (HTTP/1.1 200) 4 headers in 124 bytes (1 switches on core 0)
+[pid: 6698|app: 0|req: 2/5] 127.0.0.1 () {44 vars in 855 bytes} [Sun Aug 12 10:20:04 2018] GET /user/login?next=/user/user_center => generated 1878 bytes in 13 msecs (HTTP/1.1 200) 5 headers in 278 bytes (1 switches on core 1)

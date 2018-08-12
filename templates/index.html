@@ -1,0 +1,75 @@
+{% extends 'base.html' %}
+{% block title%}首页{% endblock title %}
+{#{% load filters %}#}
+{% block content %}
+    <div class="index_con">
+        <ul class="con_ul">
+            {% for c in page %}
+            <li class="li_title">
+                <a href="{% url 'content:show' c.id %}" >  {{ c.title}}</a>
+                <div style="float:right;font-size: 12px">更新时间:{{ c.create_time }}</div>
+            <div style="font-size: 12px;float: right;margin-right: 5px;"><span>作者：{{ c.user.last_name }}&nbsp;&nbsp;</span></div>
+{#            </li>#}
+{#                <li class="c">{% autoescape off %}{{ c.content|si_content }}#}
+{#                    {% endautoescape %}</li>#}
+
+                {% empty %}
+                 <li>什么也没有</li>
+            {% endfor  %}
+        </ul>
+        <div class="index_page">
+               <ul class="index_page_ul" >
+{#                    {% if page.paginator|length >= 10 %}#}
+{#                         {% if page.number == i %}#}
+{#                                <span>i</span>#}
+{#                            {% else %}#}
+{#                                <span><a href="{% url 'content:index' i %}">i</a></span>#}
+{#                            {% endif %}#}
+{#                        #}
+{#                        <span>....</span>#}
+{##}
+{#                    {% endif %}#}
+
+                   {% if page.has_previous %}
+                   <span><a href="{% url 'content:index' page.previous_page_number %}  ">&lt;上一页</a></span>
+                    {% endif %}
+
+                    {% for index in page.paginator.page_range %}
+                        {% if page.number == index %}
+                           <span>{{index }}</span>
+                        {% else %}
+                            <span><a href="{% url 'content:index' index %}">{{ index }}</a></span>
+                        {% endif %}
+                    {% endfor %}
+
+                    {% if page.has_next %}
+                        <span><a href="{% url 'content:index' page.next_page_number %} ">下一页&gt;</a></span>
+
+                    {% endif %}
+
+
+               </ul>
+        </div>
+    </div>
+{% endblock content %}
+
+
+	
+		
+
+	
+
+
+		
+	
+	
+
+
+	
+
+			
+
+	
+
+	
+	

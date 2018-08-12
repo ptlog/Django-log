@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+{% load static %}
+<head>
+    <meta charset="UTF-8">
+    <title>注册</title>
+<script type="text/javascript" src="{% static 'js/jquery-1.12.4.min.js' %}"></script>
+    <script type="text/javascript" src="{% static 'js/register.js' %}"></script>
+<script type="text/javascript">
+{##}
+{#    $(function(){#}
+{#        $('#change').css('cursor','pointer').click(function() {#}
+{#            $('#yzm').attr('src',$('#yzm').attr('src')+1)#}
+{#        });#}
+{##}
+{##}
+{#    });#}
+
+
+
+</script>
+    <style>
+        .con_form{
+            width:220px;
+       }
+
+{#      #form div{#}
+{#          float: right;#}
+{#          margin-top: 2px;#}
+{#      }#}
+
+        ul{
+            list-style: none;
+
+        }
+        .error_tip ,.error_tip2{
+            display: none;
+            color: red;
+        }
+
+    </style>
+</head>
+<body>
+<div><h2>欢迎注册Plog</h2></div>
+<div class="con_form">
+
+    <form action="/user/register" method="post" id="form">
+        {% csrf_token %}
+{#    <div><label for="">用户名:</label><input type="text" name="username" id="username"></div><br><br>#}
+{##}
+{#    <div><label for="">密码:</label><input type="password" name="password" id="password"></div> <br><br>#}
+{##}
+{#    <div><label for="">邮箱：</label><input type="text" name="email" id="email"></div> <br><br>#}
+{##}
+{#    <div><span id="change">换一个&nbsp;&nbsp;&nbsp;&nbsp;</span><img src="/user/identify_code?1" alt="" id="yzm"></div> <br><br>#}
+{##}
+{#    <div><label for="">验证码:</label><input type="text" name="identify_code" id="identify_code"></div>#}
+{#     <br><br>#}
+{##}
+{#    <div style="width:100px;text-align: right"><input type="submit" value="提交"></div>#}
+{#        <div><input type="checkbox" name="allow"><a href="">是否同意协议</a></div>#}
+      <ul>
+					<li>
+						<label>用户名:</label>
+						<input type="text" name="username" id="user_name" placeholder="请输入用户名">
+						<span class="error_tip">提示信息</span>
+					</li>
+          <br>
+					<li>
+						<label>密码:</label>
+						<input type="password" name="password" id="pwd" placeholder="请输入密码">
+						<span class="error_tip">提示信息</span>
+					</li>
+          <br>
+					<li>
+						<label>确认密码:</label>
+						<input type="password" name="cpassword" id="cpwd" placeholder="再次输入密码">
+						<span class="error_tip">提示信息</span>
+					</li>
+          <br>
+					<li>
+						<label>邮箱:</label>
+						<input type="text" name="email" id="email" placeholder="输入您的邮箱">
+						<span class="error_tip">提示信息</span>
+					</li>
+          <br>
+
+                    <li>
+						<label>昵称:</label>
+						<input type="text" name="name"  placeholder="输入您的昵称">
+{#						<span class="error_tip">提示信息</span>#}
+					</li>
+          <br>
+
+					<li class="agreement">
+						<input type="checkbox" name="allow" id="allow" checked="checked">
+						<label>同意”用户使用协议“</label>
+						<span class="error_tip2">提示信息</span>
+					</li>
+          <br>
+					<li>
+						<input type="submit" id="sub" value="注 册" name="">
+
+					</li>
+				</ul>
+				</form>
+</form>
+    <div style="color:red;">{{ err_msg }}</div>
+</div>
+
+</body>
+</html>

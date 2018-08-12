@@ -1,0 +1,60 @@
+{% extends 'base.html' %}
+{#{% load filters %}#}
+{% block title %}
+    {{ con.title }}
+{% endblock title %}
+
+{% block js %}
+    <script>
+    my_var = { 'var1':{{ con.id }}}
+    </script>
+    <script>
+    $(function () {
+       $('#like').click(function () {
+         val =
+           $.ajax(
+               {
+                   'url':'/like',
+                   'type':'post',
+                   'data':{
+                       'id':my_var['var1']
+
+                   }
+
+               }
+           ).success(function(data){
+               if (data.res == 1){
+                   alert('收藏成功')
+               }
+               if(data.res == 2){
+                   alert('收藏失败')
+               }
+           })
+
+       })
+    })
+    </script>
+{% endblock js %}
+{% block content %}
+    <div style="border: 1px solid darkgray;">
+        <div><h1 style="text-align: center">{{  con.title}}</h1></div>
+            {% autoescape off %}
+        <div class="con_show">
+
+            {{  con.content }}
+
+        </div>
+        {% endautoescape %}
+
+    </div>
+{% if user.is_authenticated %}
+    <form action="">
+        <input type="button" value="收藏" id="like">
+    </form>
+    {% endif %}
+
+{% endblock content %}
+
+{% block foot %}
+
+{% endblock foot %}

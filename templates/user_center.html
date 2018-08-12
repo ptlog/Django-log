@@ -1,0 +1,58 @@
+{% extends 'base.html' %}
+{% block title%}用户中心{% endblock title %}
+{#{%  load filters %}#}
+{% block style %}
+   {%endblock style %}
+{% block content %}
+    <div id="info">
+    <ul id="info_ul">
+
+        <li><h3>个人信息</h3></li>
+        <li>用户名：{{ user.last_name }}</li>
+        <li>邮箱&nbsp;&nbsp;&nbsp;&nbsp;：{{ user.email }}</li>
+
+    </ul>
+        <div id="colec">
+            <div>收藏&nbsp;&nbsp;&nbsp;&nbsp;:</div>
+                <ul class="ul">
+
+                    {% for i in like_info %}
+                         <li style="height: 50px;">
+
+                        <span style="float:left;">{{ i.title}}</span>
+                        <div style="float:right;width: 150px;">
+                            <form action="{% url 'content:dellike' i.id %}"style="float: right" method="get">
+                                <input type="submit" value="删除">
+                            </form>
+
+
+                        <span style="float: left;">作者：{{ i.user.last_name }}</span>&nbsp;&nbsp;</div>
+                    </li>
+
+
+
+
+                        {% empty %}
+                        <li>什么也没有</li>
+                    {% endfor %}
+                </ul>
+        </div>
+    </div>
+
+<div id="writer">
+
+            <ul>
+{#                <div style="margin-left:35px ; "><li><h3>作品</h3></li></div>#}
+            <div style=" "><li><h3>作品</h3></li></div>
+                {% for con in user_con %}
+                 <li>
+                    <a href="{% url 'content:show' con.id %}"><strong>{{ con.title}}</strong></a>
+                    <span style="float:right;">创建时间:{{ con.create_time }}</span>
+                </li>
+
+                {% endfor %}
+
+
+            </ul>
+</div>
+{% endblock content %}

@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+{% load static %}
+<head>
+    <meta charset="UTF-8">
+    <title>登录</title>
+{#    <script type="text/javascript" src="{% static 'js/jquery-1.12.4.min.js' %}"></script>#}
+{#    <script type="text/javascript" src="{% static 'js/csrf.js' %}"></script>#}
+{#    <script>#}
+{##}
+{#    $(function () {#}
+{##}
+{#            $('#username').focus(function () {#}
+{##}
+{#                $('#tip1').hide()#}
+{##}
+{#            })#}
+{##}
+{#            $('#password').focus(function () {#}
+{#              $('#tip1').hide()#}
+{##}
+{#            })#}
+{##}
+{#            $('#register').click(function () {#}
+{#               location.href = '/user/register'#}
+{#            })#}
+{##}
+{#           $('#sub').click(function () {#}
+{#               check_username();#}
+{#               check_password();#}
+{#               var username = $('#username').val();#}
+{#               var password = $('#password').val();#}
+{##}
+{#               if (err_p == false && err_u ==false){#}
+{#                #}
+{#               }#}
+{#                  $.ajax({#}
+{#                   'url':'/user/login',#}
+{#                   'type':'post',#}
+{#                   'dataType':'json',#}
+{#                   'data':{#}
+{#                       'username':username,#}
+{#                       'password':password,#}
+{#                   }#}
+{#               }).done(function (data) {#}
+{#                  if(data['res'] == 0){#}
+{#                      $('#tip1').show().html('请完整的输入账号和密码');#}
+{#                      return ;#}
+{##}
+{#                  }#}
+{#                  if(data['res'] == 1){#}
+{#                      $('#tip1').show().html('登录成功');#}
+{#                      setTimeout(alert('登录成功'), 1500)#}
+{#                      location.href = data['next']#}
+{#                      return;#}
+{##}
+{#                  }#}
+{#                  if (data['res'] ==2 ){#}
+{#                       $('#tip1').show().html('账户未激活');#}
+{#                       return;#}
+{#                  }#}
+{#                  if (data['res'] == 3){#}
+{#                       $('#tip1').show().html('用户名或密码错误');#}
+{##}
+{#                  }#}
+{#                  else{#}
+{#                      alert('登录成功！');#}
+{#                      location.href = '/index'#}
+{##}
+{#                  }#}
+{##}
+{#               })#}
+{##}
+{##}
+{#           })#}
+{##}
+{#            function check_username(){#}
+{#                var username = $user.val()#}
+{#                if (username == ''){#}
+{#                    $user.next().show().html('用户名不为空')#}
+{#                    err_u = true;#}
+{##}
+{#                }#}
+{#                else{#}
+{#                    err_u = false;#}
+{#                }#}
+{##}
+{##}
+{#            function check_password() {#}
+{#               var password = $pass.val()#}
+{#                if (password == ''){#}
+{#                   $pass.next().show().html('密码不能为空')#}
+{#                    err_p = true;#}
+{##}
+{#                }#}
+{#                else{#}
+{#                    err_p = false;#}
+{#                }#}
+{#    })#}
+
+{#    </script>#}
+    <style>
+        #img1{
+            width:600px;
+            height: 380px;
+            margin: 5px auto 0;
+            float: left;
+            overflow: hidden;
+
+        }
+
+        .form{
+
+            float: left;
+
+        }
+
+        .form_con{
+            float: right;
+            width: 300px;
+            text-align: right;
+            margin: 200px 200px 0 0;
+
+        }
+
+
+        #tip1, .tip_p, .tip_u{
+            text-align: center;
+            color: red;
+        }
+        .button{
+            width:300px;
+
+        }
+        .button input{
+            float: right; margin-left: 5px;
+        }
+
+    .foot{
+        position: fixed;
+        bottom: 0;
+        left:50%;
+        margin-left: -240px;
+    }
+    </style>
+</head>
+<body>
+{#{% csrf_token %}#}
+<div>
+    <div id="img1"><img src="{% static 'images/mm.jpg' %}" alt=""></div>
+    <div class="form">
+        <div class="form_con">
+            <form action="" method="post">
+                {% csrf_token %}
+                 <label for="username">用户名：</label><input type="text" id="username" name="username" value="{{ username }}"><br><br>
+        <label for="password">密码：</label><input type="password" id="password" name="password"><br /><br />
+
+
+            <div class="button">
+
+            <input type="submit" value="登录" id="sub">
+                <a href="{% url 'user:register' %}" style="text-decoration: none">注册</a>
+
+        </div>
+            </form>
+            <div id="tip1">{{ err_msg }}</div>
+        </div>
+
+
+
+    </div>
+
+</div>
+
+	<div class="foot">
+				Copyright©2018-2019  Plog.com  .All Rights Reserved
+        </div>
+
+</body>
+
+</html>

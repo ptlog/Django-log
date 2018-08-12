@@ -1,0 +1,4 @@
+# 指定要建立索引的字段
+
+{{ object.title }}
+{{ object.content}}

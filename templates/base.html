@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang="en">
+{% load static %}
+<head>
+	<meta charset="UTF-8">
+	<title>{% block title %}首页{% endblock title %}</title>
+
+	<style type="text/css">
+
+		.title{
+			width: 1200px;
+						
+			margin: 0 auto ;
+			/*overflow: hidden;*/
+			background-color: #5151a2;
+			text-align: left;
+			line-height: 100px;
+			
+		
+		}
+
+        .menu{
+			width: 1200px;
+			height: 50px;
+			
+			margin: 0 auto ;
+			
+			line-height: 50px;
+			background-color: #b8b8bc;
+		}
+
+		.menu .menu_ul{
+			margin: 0px;
+			list-style:none;
+			padding: 0;
+			/*opacity: 0.3;*/
+
+		}
+		.menu .menu_ul li{
+
+			float: left;
+			margin-left: 20px;
+		}
+		
+		.menu ul a{
+			text-decoration: none;
+		}	
+		.menu ul a:hover{
+			color: #ffff6f;
+		}
+
+		.back{
+			width: 1200px;
+			height: 55px;
+			margin: 0 auto ;
+			display: none;
+		}
+
+
+		.totop{
+			width: 60px;
+			height: 60px;
+			background-color: #000;
+			color: #fff;
+			text-align: center;
+			line-height: 60px;
+			font-size: 40px;
+
+			border-radius: 50%;
+			cursor: pointer;
+			position: fixed;
+
+			right: 20px;
+			bottom: 50px;
+
+			opacity: 0.3;
+
+			display: none;
+            z-index: 99999;
+		}
+
+		.con {
+			width: 1200px;
+            height:700px;
+			
+			margin: 0 auto 0;
+			
+			line-height: 50px;
+
+		}
+
+        {# 简介 #}
+        .con_profile{
+            width:1200px;
+            margin: 0 auto 0;
+            height:960px;
+            overflow: visible;
+
+        }
+
+        {# 首页 #}
+		.con .con_ul{
+			text-align: left;
+			list-style: none;
+			padding: 0px;
+			margin: 0px;
+            text-decoration: none;
+		}
+
+        .con_ul li{
+
+            border-bottom:1px solid darkgrey;
+            padding-left: 20px;
+        }
+
+	    .li_title a{
+            text-decoration: none;
+        }
+        .con_ul p{
+            margin:0;
+        }
+        
+{#        .index_page{#}
+{#            height:40px;#}
+{#            text-align: center; #}
+{#           #}
+{#            list-style: none;#}
+{#            margin:auto;#}
+{#            line-height:40px;#}
+{#            padding:0px;#}
+{#            position: relative;#}
+{#            text-align: center;#}
+{#        }#}
+
+        .index_page {
+            width: 1200px;
+            margin:0;
+{#            border:1px solid black;#}
+            height:40px;
+            line-height: 40px;
+            text-align: center;
+{#            padding:0 auto 0;#}
+        }
+        .index_page_ul {
+            height:40px;
+{#            border:1px solid red;#}
+            width: 800px;
+            list-style: none;
+            margin:0 auto 0;
+            text-align: center;
+            padding:0px;
+            font-size: 20px;
+{#            position: relative;#}
+{#            padding:40px;#}
+
+
+        }
+        .index_page_ul a{
+            text-decoration: none;
+        }
+        .index_page_ul span{
+{#            text-decoration: none;#}
+            margin-right: 10px;
+        }
+        .index_page_ul a:hover{
+            color: red;
+        }
+{#        .index_page li{#}
+{#            position: static;#}
+{#            float: left;#}
+{#            margin-left: 20px;#}
+{#        }#}
+
+{#        .con_ul .c{#}
+{#            height:130px;#}
+{#            overflow: hidden;#}
+{#        }#}
+
+{#        index_con{#}
+{##}
+{#        }#}
+
+
+		.con .con_ul {
+{#			margin-left: 20px#}
+
+		}
+
+
+
+
+	/*	.xiaoacao_footer{
+			width: 960px;
+			height: 20px;
+			line-height: 20px;
+			position: fixed;
+			left: 50%;
+			
+			bottom: 0;
+			margin-left: -480px;
+			text-align: center;
+			background-color:#5151a2 ;
+			color: #fff;
+			font-family: Arial;
+			font-size: 14px;
+			letter-spacing: 1px;
+			z-index: -1;*/
+
+			/*opacity: 0.3;*/
+			
+		/*	}*/
+
+	.foot{
+
+            width: 1200px;
+            height:20px;
+
+			margin: 0 auto 0 ;
+
+			line-height: 20px;
+            text-align: center;
+
+			
+		}
+
+        {# 用户中心 #}
+ #info{
+        width:380px;
+        float: left;
+    }
+
+ #info_ul, #ul, .ul{
+     list-style: none;
+ }
+ #info_ul{
+     padding: 0px;
+     margin-bottom: 0;
+ }
+ #info_ul li{
+     border-bottom: 1px dotted black;
+
+ }
+
+ #colec .ul{
+     margin:2px;
+ }
+ #colec .ul li{
+{#     text-align: left;#}
+     margin-top:-1px;
+     border-top: 1px dotted black;
+     border-bottom: 1px dotted black;
+ }
+
+
+    #writer{
+        width:820px;
+        float:right;
+    }
+    #writer  li{
+    text-align:left;
+        list-style: none;
+        border-bottom: 1px dotted black;
+    }
+    #writer a{
+        text-decoration: none;
+    }
+
+        {# 显示 #}
+        .con_show p {
+            margin:0px;
+{#            padding:-1px;#}
+            -webkit-margin-before: 1em;
+            -webkit-margin-after: 1em;
+            -webkit-margin-start: 0px;
+            -webkit-margin-end: 0px;
+{#            zoom: 1;#}
+            text-indent: 2em;
+            line-height: 30px;
+        }
+
+
+{% block style %}
+{% endblock style%}
+
+	</style>
+
+	<script type="text/javascript" src="{% static 'js/jquery-1.12.4.min.js' %}"></script>
+    <script src="{% static 'js/csrf.js' %}"></script>
+    <script >$(function(){
+			var $menu = $('.menu');
+			var $back = $('.back');
+
+			var $totop = $('.totop');
+
+			//屏幕滚动
+			$(window).scroll(function(){
+
+				//打印出已经划出屏幕的距离
+				var iNum = $(document).scrollTop();
+// {#				document.title  = iNum;#}
+
+				//如果划出的屏幕大于100px；
+				if (iNum > 100){
+
+					$menu.css({
+						//菜单悬浮置顶
+
+						'position':'fixed',
+						'left':'50%', //左上角水平居中
+						'top':0,
+						'z-index':9999,
+						'margin-left':-600 ,//向左移动半个菜单的长度
+
+
+
+											});
+					$back.show();
+					$totop.fadeIn();
+					$totop.click(function(){
+						//屏幕滚回顶部
+						$('html,body').stop().animate({'scrollTop':0});
+			});
+
+
+				}
+				else{
+					$menu.css({
+
+						'position':'static', //不设定定位
+						'margin-left':'auto' //设置
+
+											});
+					$back.hide();
+					$totop.fadeOut();
+				}
+
+
+
+			})
+
+
+		})</script>
+
+{% block js %}
+{% endblock js %}
+</head>
+<body style="margin: 0px;padding: 0px;">
+
+		<div class="title" >
+		    <h1 style="color: #d9ffff;margin: 0;">Plog</h1>
+		</div>
+	
+		<div class="menu">
+			<ul class="menu_ul">
+			<li ><a href="{% url 'content:index' 1 %}">首页</a></li>
+			<li><a href="{% url 'content:profile' %}">简介</a></li>
+			<li><a href="{% url 'user:user_center' %}">个人中心</a></li>
+                {% if user.is_authenticated  %}
+                    <li><a href="{% url 'content:editor' %}">发表</a></li>
+                    <li><a href="{% url 'user:logout' %}">退出</a></li>
+
+                {% endif %}
+{#			<li>#}
+{#				<form action="/search" method="get">#}
+{#					<input type="text" name="q" placeholder="搜索内容">#}
+{#					<input type="submit" value="搜索">#}
+{#				</form>#}
+{#			</li>#}
+			</ul>
+		</div>
+
+		<div class="back"></div>
+
+		<div class="totop">↑</div>
+
+		
+	    {% block main %}
+		<div  class="con">
+
+			{% block content %}
+			{%endblock content %}
+
+		</div>
+
+        {% endblock main %}
+        {% block foot %}
+		<div class="foot">
+				Copyright©2018-2019  Plog.com  .All Rights Reserved
+        </div>
+        {% endblock foot %}
+
+
+</body>
+</html>
